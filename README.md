@@ -17,7 +17,8 @@ The included (*principal*) packages are briefly described in the following table
 | [abb_libegm](abb_libegm) | (A modified version of https://github.com/ros-industrial/abb_libegm) Provides a ROS node that exposes hardware interface, for *direct motion control* of ABB robots (via the *Externally Guided Motion* (`EGM`) interface). |
 | [abb_driver](abb_driver) | Provides ROS nodes for the main interface with the controller. It combine the RWS and EGM node and use the parameters in the yaml file. |
 | [abb_controllers](abb_controllers) | Provides ROS nodes for kinematic calculation using the URDF model of the robot. |
-| [abb_description](abb_description) | Provides ROS nodes for kinematic calculation using the URDF model of the robot. |
+| [gofa_description](gofa_description) | Provides ROS nodes for kinematic calculation using the URDF model of the robot. |
+| [yumi_description](yumi_description) | Provides ROS nodes for kinematic calculation using the URDF model of the robot. |
 | [degub_rviz_tool](abb_description) | Tools used for tests and debug |
 
 Please see each package for more details (*e.g. additional requirements, limitations and troubleshooting*).
