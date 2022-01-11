@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="gofa_description">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-0.0012013793465437 -0.000175191786981708 0.0862146007385352"
+        rpy="0 0 0" />
+      <mass
+        value="3.50083457958494" />
+      <inertia
+        ixx="0.0153015257917955"
+        ixy="-6.40155032892694E-05"
+        ixz="-0.000276708687772683"
+        iyy="0.0159333503953857"
+        iyz="-3.98029144780725E-05"
+        izz="0.0112162302268266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="L1">
+    <inertial>
+      <origin
+        xyz="2.08682453325091E-06 0.0103608399967513 0.0705307203199506"
+        rpy="0 0 0" />
+      <mass
+        value="2.76743491139404" />
+      <inertia
+        ixx="0.0115158625894577"
+        ixy="6.37197693598838E-08"
+        ixz="5.98954393680154E-09"
+        iyy="0.006494848329231"
+        iyz="-0.000196668400316843"
+        izz="0.0109446835358581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.1875"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="L1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="L2">
+    <inertial>
+      <origin
+        xyz="1.34018352211628E-06 -0.0500118376116071 0.222001399322246"
+        rpy="0 0 0" />
+      <mass
+        value="4.28904168670464" />
+      <inertia
+        ixx="0.130524729873898"
+        ixy="1.31811857134115E-07"
+        ixz="1.99022457670482E-06"
+        iyy="0.133278449324229"
+        iyz="-4.48622200366709E-07"
+        izz="0.00669457974697178" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="continuous">
+    <origin
+      xyz="0 -0.085 0.0775"
+      rpy="0 0 0" />
+    <parent
+      link="L1" />
+    <child
+      link="L2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="L3">
+    <inertial>
+      <origin
+        xyz="0.0128129281453599 0.0944171780907046 0.0247427540642403"
+        rpy="0 0 0" />
+      <mass
+        value="3.38333107992875" />
+      <inertia
+        ixx="0.0175626138728642"
+        ixy="0.000364866179108744"
+        ixz="-0.00318670290285352"
+        iyy="0.0140230068919562"
+        iyz="0.000704668055158407"
+        izz="0.013275205067567" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="continuous">
+    <origin
+      xyz="0 -0.00100000000000007 0.444"
+      rpy="0 0 0" />
+    <parent
+      link="L2" />
+    <child
+      link="L3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="L4">
+    <inertial>
+      <origin
+        xyz="0.160558561602322 0.041976811408979 -2.36623354021859E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.77857535641324" />
+      <inertia
+        ixx="0.00881683095901354"
+        ixy="-0.010746260580237"
+        ixz="1.2899930119841E-07"
+        iyy="0.0340754175571832"
+        iyz="3.96362791626429E-08"
+        izz="0.0389358932156922" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="continuous">
+    <origin
+      xyz="0.096 0.0860000000000001 0.11"
+      rpy="0 0 0" />
+    <parent
+      link="L3" />
+    <child
+      link="L4" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="L5">
+    <inertial>
+      <origin
+        xyz="-0.0147152361879962 -0.0785646469392633 0.0427558021601431"
+        rpy="0 0 0" />
+      <mass
+        value="3.01105814739001" />
+      <inertia
+        ixx="0.0114597336686444"
+        ixy="0.000180094704361231"
+        ixz="0.00165207280226761"
+        iyy="0.013561904467501"
+        iyz="-0.000525272443978826"
+        izz="0.0108480119549914" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J5"
+    type="continuous">
+    <origin
+      xyz="0.374 0.0744999999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="L4" />
+    <child
+      link="L5" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="L6">
+    <inertial>
+      <origin
+        xyz="0.0137506852604966 0.000239804131398652 -0.000341962798940165"
+        rpy="0 0 0" />
+      <mass
+        value="0.146500988015653" />
+      <inertia
+        ixx="0.000128977630055306"
+        ixy="-8.7622752508613E-08"
+        ixz="1.18851551870012E-07"
+        iyy="7.61118177829087E-05"
+        iyz="-6.49821554399679E-07"
+        izz="7.65022909768016E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gofa_description/meshes/L6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J6"
+    type="continuous">
+    <!-- <origin
+      xyz="0.0679999999999995 -0.0744999999999998 0.0800000000000003"
+      rpy="0.214053171554098 0 0" /> -->
+      <origin
+      xyz="0.0679999999999995 -0.0744999999999998 0.0800000000000003"
+      rpy="0 0 0" />
+    <parent
+      link="L5" />
+    <child
+      link="L6" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="tool0">
+  </link>
+  <joint
+    name="L6_to_tool0"
+    type="fixed">
+      <origin
+      xyz="0.0326 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="L6" />
+    <child
+      link="tool0" />
+  </joint>
+</robot>

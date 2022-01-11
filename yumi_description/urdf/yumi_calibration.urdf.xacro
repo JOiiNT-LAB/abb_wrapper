@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot name="yumi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find yumi_description)/urdf/Util/materials.xacro" />
+  <!-- Import utilities -->
+  <xacro:include filename="$(find yumi_description)/urdf/Util/utilities.xacro" />
+  <!--Import the yumi macro -->
+  <xacro:include filename="$(find yumi_description)/urdf/yumi.xacro"/>
+  <!--Import the yumi servo gripper macro -->
+  <xacro:include filename="$(find yumi_description)/urdf/Grippers/yumi_servo_gripper.xacro"/>
+  <!-- Import Gazebo plugins -->
+  <xacro:include filename="$(find yumi_description)/urdf/Gazebo/gazebo.urdf.xacro"/>
+
+  <xacro:include filename="$(find yumi_description)/model/calibrator.urdf.xacro"/>
+
+
+
+
+  <!-- <xacro:if value="${yumi_setup == 'default'}">
+    <xacro:property name="yumi_parent" value="world" />
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+      <parent link="world"/>
+      <child link="yumi_base_link"/>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+    </joint>
+  </xacro:if> -->
+  <link name="world"/>
+
+  <joint name="world_joint" type="fixed">
+      <parent link="world"/>
+      <child link="yumi_base_link"/>
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+  </joint>
+
+  <!--yumi-->
+  <xacro:yumi name="yumi" hardware_interface="hardware_interface/$(arg arms_interface)" parent="world" >
+    <origin xyz="0 0.0 0.0" rpy="0 0 0" />
+  </xacro:yumi>
+
+  <!--right gripper-->
+<!--   <xacro:yumi_servo_gripper name="gripper_r" hardware_interface="hardware_interface/$(arg grippers_interface)" parent="yumi_link_7_r">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+  </xacro:yumi_servo_gripper> -->
+
+  <!--left gripper-->
+<!--   <xacro:yumi_servo_gripper name="gripper_l" hardware_interface="hardware_interface/$(arg grippers_interface)" parent="yumi_link_7_l">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+  </xacro:yumi_servo_gripper> -->
+
+    <!-- from the CAD model, the frame coincides with the 7-th link -->
+  <xacro:calibrator name="calibrator_10" parent="yumi_link_7_l">
+    <origin xyz="0 0 0.014" rpy="1.57079633 0 0"/>
+  </xacro:calibrator>
+
+
+
+  <xacro:property name="yumi_setup" value="$(arg yumi_setup)" />
+
+  <xacro:if value="${yumi_setup == 'robot_centric'}">
+  	<!-- Pure YuMi URDF, with no joints connecting it to any other robot or pedestal. Neither accessories. -->
+  </xacro:if>
+
+
+
+</robot>

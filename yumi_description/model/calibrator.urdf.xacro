@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="calibrator" params="parent name *origin">
+  <joint name="${parent}_${name}_base_joint" type="fixed">
+    <xacro:insert_block name="origin"/>
+    <parent link="${parent}"/>
+    <child link="${name}_mesh"/>
+  </joint>
+  <link name="${name}_mesh">
+    <visual>
+      <geometry>
+        <mesh filename="package://yumi_description/meshes/camera_robot_calibrator.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://yumi_description/meshes/camera_robot_calibrator.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- this is where the ar marker is w.r.t. the mesh, known from CAD model -->
+  <joint name="${name}_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${name}_mesh"/>
+    <child link="${name}"/>
+  </joint>
+  <link name="${name}"/>
+</xacro:macro>
+
+</robot>
+
+<!-- 1.57079633 -->
