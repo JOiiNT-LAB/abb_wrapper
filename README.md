@@ -1,6 +1,6 @@
 # abb_wrapper
 
-[ROS-Industrial][] packages intended to ease interaction between ABB robot OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
+[ROS-Industrial] packages intended to ease interaction between ABB robot OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
 
 ## Important Notes
 Tested on Ubuntu 18.04 with ROS Melodic 
