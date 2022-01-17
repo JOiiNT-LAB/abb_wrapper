@@ -1,13 +1,12 @@
 # abb_wrapper
-
-[ROS-Industrial] packages intended to ease interaction between ABB robot OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
+These packages are intended to ease the interaction between ABB OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
 
 ## Important Notes
-Tested on Ubuntu 18.04 with ROS Melodic 
+Tested on Ubuntu 18.04 with ROS Melodic.
 
 ## Overview
 
-[ROS-Industrial][] packages intended to ease interaction between ABB robot OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
+These packages are intended to ease the interaction between ABB OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
 
 The included (*principal*) packages are briefly described in the following table:
 
@@ -123,7 +122,6 @@ $ catkin_make
 If there are no errors you are ready to use the interface.
 
 
-
 ## Robot Set up
 
 ### Requirements
@@ -137,23 +135,59 @@ After the creation of the system just configure robot to accept external communi
 ### Setup the IP address for the WAN port
 With this configuration, we will set up the IP address of the WAN port where the computer running ROS will be connected.
 
-* On the Controller tab, in the Configuration group, Click Properties and then click `Network settings`.
+* On the Controller tab, in the Configuration group, click Properties and then click `Network settings`.
   The Network settings dialog opens.
 * Select `Use the following IP address` and then enter the required IP address and Subnet mask boxes to manually set the IP address of the controller
+
+**This step is optional, also the MGMT port can be used.**
+
+The MGMT port have a fixed IP address (*192.168.125.1* ) and a DHCP server.
+
+If you are using the MGMT port make sure that the connected computer running ROS is on the same natwork (*192.168.125.xx* ) or the DHCP is enabled.
 
 ### Setup the UDP device
 Configure the IP address and the port to use for the UDP protocol.
 This IP address must be the same of the PC running ROS.
 
-On the Controller tab, in the Configuration group, Click Configuration and then click `Communication`.
+Using RobotStudio, first **request the write access**.
+On the Controller tab, in the Configuration group, click Configuration and then click `Communication`.
+
+Double click on the `UDP Unicast Device` item.
+
 An example of UDP device is show in the folloging table.
 
 | Name | Type | Remote Address | Remote Port Number | Local Port Number |
 | --- | --- | --- | --- | --- |
-| ROB_1 | UDPUC | 92.168.100.100 | 6511 | 0 |
+| ROB_1 | UDPUC | 192.168.100.100 | 6511 | 0 |
 
+### Setup the Controller Firewall
+Using the WAN port the firewall on the public network must be configured.
 
+Using RobotStudio, first **request the write access**.
+On the Controller tab, in the Configuration group, click Configuration and then click `Communication`.
 
+Double click on the `Firewall Manager` item.
+Enable on the public network the following services:
+* RobotWebServices
+* UDPUC
+
+### Configure the user privileges
+This package use the [Robot Web Services 2.0](https://developercenter.robotstudio.com/api/RWS) (RWS) to control the robot.
+Each RWS session is logged using a user that must to be present on the User Authorization System of the controller (for more details about User Authorization System, see Operating manual - RobotStudio).
+If not specified, for the RWS communication, the default user is used:
+* Username: **Default User**
+* Password: **robotics**
+
+By default, the **Default User** does not have the grant *Remote Start and Stop in Auto* (run rapid routine from the WAN port in Auto mode).
+The steps to configure the user accounts are:
+1. Using RobotStudio log-in on the controller as Administrator (usually with the user **Admin** and password **robotics**).
+2. On the Controller tab, in the Access group, click Authenticate and then click `Edit User Account`.
+3. On the tab roles check if the grant *Remote Start and Stop in Auto* is checked for the role of the Default User.
+4. Apply.
+
+Any other user can be used by passing the name and the password to **rws_interface**.
+
+ 
 ### Set up Config File and launch your abb robot (e.g. Gofa) 
 Navigate to abb_driver/config/gofa_cfg.yaml
 Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.)
