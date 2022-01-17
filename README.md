@@ -169,7 +169,7 @@ On the Controller tab, in the Configuration group, click Configuration and then 
 Double click on the `Firewall Manager` item.
 Enable on the public network the following services:
 * RobotWebServices
-* UDPUC
+* UDPUC (available from RW 7.3.2)
 
 ### Configure the user privileges
 This package use the [Robot Web Services 2.0](https://developercenter.robotstudio.com/api/RWS) (RWS) to control the robot.
