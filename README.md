@@ -128,7 +128,7 @@ If there are no errors you are ready to use the interface.
 
 * RobotWare version `7.2` or higher (lower versions are incompatible due to changes in the EGM communication protocol).
 * A license for the RobotWare option *Externally Guided Motion* (`3124-1`).
-* StateMachine 2.0 RobotWare Add-In
+* StateMachine 2.0 RobotWare Add-In (soon on the RobotApps)
 
 After the creation of the system just configure robot to accept external communication both for EGM and Web Services.
 
@@ -179,7 +179,8 @@ If not specified, for the RWS communication, the default user is used:
 * Password: **robotics**
 
 By default, the **Default User** does not have the grant *Remote Start and Stop in Auto* (run rapid routine from the WAN port in Auto mode).
-The steps to configure the user accounts are:
+
+The steps to configure the user account are:
 1. Using RobotStudio log-in on the controller as Administrator (usually with the user **Admin** and password **robotics**).
 2. On the Controller tab, in the Access group, click Authenticate and then click `Edit User Account`.
 3. On the tab roles check if the grant *Remote Start and Stop in Auto* is checked for the role of the Default User.
