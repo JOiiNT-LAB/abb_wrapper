@@ -1,7 +1,5 @@
 /***********************************************************************************************************************
-BSD 3-Clause License
-Author: Gianluca Lentini, Ugo Alberto Simioni
-Copyright (c) 2021, JOiiNT LAB, Istituto italiano di Tecnologia, Intellimech.
+Copyright (c) 2021, JOiiNT LAB, Fondazione Istituto Italiano di Tecnologia, Intellimech Consorzio per la Meccatronica.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -28,8 +26,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ***********************************************************************************************************************
- */
+***********************************************************************************************************************
+*
+***********************************************************************************************************************
+* 
+* Authors: Gianluca Lentini, Ugo Alberto Simioni
+* Date:18/01/2022
+* Version 1.0
+***********************************************************************************************************************
+*/
 #include <stdio.h>
 #include <sys/select.h>
 #include <termios.h>
