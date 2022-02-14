@@ -131,13 +131,33 @@ If there are no errors you are ready to use the interface.
 * StateMachine 2.0 RobotWare Add-In (soon on the RobotApps)
 
 After the creation of the system just configure robot to accept external communication both for EGM and Web Services.
+### RobotStudio
+
+Open RobotStudio
+
+<img src="images/robotstudio1.png" alt="RobotStudio">
+
+On the Controller Tab, click Add Controller > One Click Connect..
+
+<img src="images/robotstudio2.png" alt="RobotStudio">
+
+Click on "Log in as Default User" button
+
+<img src="images/robotstudio3.png" alt="RobotStudio">
+
 
 ### Setup the IP address for the WAN port
 With this configuration, we will set up the IP address of the WAN port where the computer running ROS will be connected.
 
 * On the Controller tab, in the Configuration group, click Properties and then click `Network settings`.
   The Network settings dialog opens.
+  
+  <img src="images/robotstudio4.png" alt="RobotStudio">
+
 * Select `Use the following IP address` and then enter the required IP address and Subnet mask boxes to manually set the IP address of the controller
+
+
+  <img src="images/robotstudio5.png" alt="RobotStudio">
 
 **This step is optional, also the MGMT port can be used.**
 
@@ -146,19 +166,20 @@ The MGMT port have a fixed IP address (*192.168.125.1* ) and a DHCP server.
 If you are using the MGMT port make sure that the connected computer running ROS is on the same natwork (*192.168.125.xx* ) or the DHCP is enabled.
 
 ### Setup the UDP device
-Configure the IP address and the port to use for the UDP protocol.
-This IP address must be the same of the PC running ROS.
+Configure the IP address and the port to use for the UDP protocol. **This IP address must be the same of the PC running ROS.**
 
 Using RobotStudio, first **request the write access**.
+
+  <img src="images/robotstudio6.png" alt="RobotStudio">
+
 On the Controller tab, in the Configuration group, click Configuration and then click `Communication`.
+
+  <img src="images/robotstudio7.png" alt="RobotStudio">
 
 Double click on the `UDP Unicast Device` item.
 
-An example of UDP device is show in the folloging table.
+  <img src="images/robotstudio9.png" alt="RobotStudio">
 
-| Name | Type | Remote Address | Remote Port Number | Local Port Number |
-| --- | --- | --- | --- | --- |
-| ROB_1 | UDPUC | 192.168.100.100 | 6511 | 0 |
 
 ### Setup the Controller Firewall
 Using the WAN port the firewall on the public network must be configured.
@@ -171,6 +192,8 @@ Enable on the public network the following services:
 * RobotWebServices
 * UDPUC (available from RW 7.3.2)
 
+  <img src="images/robotstudio8.png" alt="RobotStudio">
+
 ### Configure the user privileges
 This package use the [Robot Web Services 2.0](https://developercenter.robotstudio.com/api/RWS) (RWS) to control the robot.
 Each RWS session is logged using a user that must to be present on the User Authorization System of the controller (for more details about User Authorization System, see Operating manual - RobotStudio).
@@ -182,8 +205,16 @@ By default, the **Default User** does not have the grant *Remote Start and Stop 
 
 The steps to configure the user account are:
 1. Using RobotStudio log-in on the controller as Administrator (usually with the user **Admin** and password **robotics**).
+  <img src="images/robotstudio12.png" alt="RobotStudio">
+  <img src="images/robotstudio13.png" alt="RobotStudio">
+
 2. On the Controller tab, in the Access group, click Authenticate and then click `Edit User Account`.
+   <img src="images/robotstudio10.png" alt="RobotStudio">
+
 3. On the tab roles check if the grant *Remote Start and Stop in Auto* is checked for the role of the Default User.
+
+   <img src="images/robotstudio11.png" alt="RobotStudio">
+
 4. Apply.
 
 Any other user can be used by passing the name and the password to **rws_interface**.
