@@ -33,13 +33,13 @@ The following instructions assume that a [Catkin workspace](http://wiki.ros.org/
 The following instructions should build the main branches of all required repositories on a ROS Melodic system:
 
 ```bash
-source /opt/ros/melodic/setup.bash
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin_make
 
-source devel/setup.bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 If no errors were reported as part of the `catkin_make` command, the build has succeeded and the driver should now be usable.
@@ -103,15 +103,14 @@ sudo apt-get install libboost-all-dev
 ### Set up the interface
 
 Copy **abb_wrapper** folder to **src** folder on catkin workspace (`~/catkin_ws/src`).
-
-Source the workspace
 ```bash
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+cd catkin_ws/src
+git clone https://github.com/JOiiNT-LAB/abb_wrapper
 ```
 
-Move to the workspace folder
+Move back to the workspace folder (catkin_ws/)
 ```bash
-cd catkin_ws/
+cd ..
 ```
 
 Compile the workspace
@@ -119,8 +118,7 @@ Compile the workspace
 catkin_make
 ```
 
-If there are no errors you are ready to use the interface.
-
+If there are no errors you are ready to proceed to set up the robot.
 
 ## Robot Set up
 
