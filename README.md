@@ -127,8 +127,10 @@ If there are no errors you are ready to proceed to set up the robot.
 * RobotWare version `7.2` or higher (lower versions are incompatible due to changes in the EGM communication protocol).
 * A license for the RobotWare option *Externally Guided Motion* (`3124-1`).
 * StateMachine 2.0 RobotWare Add-In (soon on the RobotApps)
-<img src="images/flexpendant1.png" alt="FlexPendant">
-<img src="images/flexpendant2.png" alt="FlexPendant">
+
+<img src="images/flexpendant1.png" alt="FlexPendant" width="50%" height="50%">
+<img src="images/flexpendant2.png" alt="FlexPendant" width="50%" height="50%">
+
 After the creation of the system just configure robot to accept external communication both for EGM and Web Services.
 ### RobotStudio
 
@@ -205,7 +207,7 @@ By default, the **Default User** does not have the grant *Remote Start and Stop 
 The steps to configure the user account are:
 1. Using RobotStudio log-in on the controller as Administrator (usually with the user **Admin** and password **robotics**).
   <img src="images/robotstudio12.png" alt="RobotStudio">
-  <img src="images/robotstudio13.png" alt="RobotStudio">
+  <img src="images/robotstudio13.png" alt="RobotStudio" width="50%" height="50%">
 
 2. On the Controller tab, in the Access group, click Authenticate and then click `Edit User Account`.
    <img src="images/robotstudio10.png" alt="RobotStudio">
