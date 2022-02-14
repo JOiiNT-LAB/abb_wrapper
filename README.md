@@ -33,13 +33,13 @@ The following instructions assume that a [Catkin workspace](http://wiki.ros.org/
 The following instructions should build the main branches of all required repositories on a ROS Melodic system:
 
 ```bash
-$ source /opt/ros/melodic/setup.bash
+source /opt/ros/melodic/setup.bash
 
-$ mkdir -p ~/catkin_ws/src
-$ cd ~/catkin_ws/
-$ catkin_make
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
 
-$ source devel/setup.bash
+source devel/setup.bash
 ```
 
 If no errors were reported as part of the `catkin_make` command, the build has succeeded and the driver should now be usable.
@@ -51,43 +51,43 @@ Start a terminal session (launch terminal) by <kbd>Ctrl</kbd> + <kbd>Alt</kbd> +
 Install essential dependencies and git, execute the following commands one by one:
 
 ```bash
-$ sudo apt update
-$ sudo apt upgrade
-$ sudo apt install build-essential gdb cmake git
-$ sudo apt-get install openssl libssl-dev
-$ sudo apt-get install libiodbc2 libiodbc2-dev
-$ sudo apt-get install libmysqlclient-dev
+sudo apt update
+sudo apt upgrade
+sudo apt install build-essential gdb cmake git
+sudo apt-get install openssl libssl-dev
+sudo apt-get install libiodbc2 libiodbc2-dev
+sudo apt-get install libmysqlclient-dev
 ```
 
 Get root access:
 ```bash
-$ sudo -i
+sudo -i
 ```
 
 Navigate to /tmp/ directory (or any other directory to store temporary files).
 ```bash
-$ cd /tmp/
+cd /tmp/
 ```
 
 Clone the Poco git repo:
 ```bash
-$ git clone -b master https://github.com/pocoproject/poco.git
+git clone -b master https://github.com/pocoproject/poco.git
 ```
 
 Compile the libraries:
 ```bash
-$ cd poco
-$ mkdir cmake-build
-$ cd cmake-build
-$ cmake ..
-$ cmake --build . --config Release
+cd poco
+mkdir cmake-build
+cd cmake-build
+cmake ..
+cmake --build . --config Release
 ```
 
 **Note**: If you get a library not found error, just install that library via apt.
 
 Install the libraries to include in C++ code:
 ```bash
-$ sudo cmake --build . --target install
+sudo cmake --build . --target install
 ```
 
 Copy all the poco file from /usr/local/lib/ to /usr/lib
@@ -96,7 +96,7 @@ Copy all the poco file from /usr/local/lib/ to /usr/lib
 
 [Boost C++](https://www.boost.org)
 ```bash
-$ sudo apt-get install libboost-all-dev
+sudo apt-get install libboost-all-dev
 
 ```
 
@@ -106,17 +106,17 @@ Copy **abb_wrapper** folder to **src** folder on catkin workspace (`~/catkin_ws/
 
 Source the workspace
 ```bash
-$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 Move to the workspace folder
 ```bash
-$ cd catkin_ws/
+cd catkin_ws/
 ```
 
 Compile the workspace
 ```bash
-$ catkin_make
+catkin_make
 ```
 
 If there are no errors you are ready to use the interface.
