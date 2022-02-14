@@ -127,7 +127,8 @@ If there are no errors you are ready to proceed to set up the robot.
 * RobotWare version `7.2` or higher (lower versions are incompatible due to changes in the EGM communication protocol).
 * A license for the RobotWare option *Externally Guided Motion* (`3124-1`).
 * StateMachine 2.0 RobotWare Add-In (soon on the RobotApps)
-
+<img src="images/flexpendant1.png" alt="FlexPendant">
+<img src="images/flexpendant2.png" alt="FlexPendant">
 After the creation of the system just configure robot to accept external communication both for EGM and Web Services.
 ### RobotStudio
 
