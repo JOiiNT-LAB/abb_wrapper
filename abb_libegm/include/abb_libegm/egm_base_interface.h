@@ -459,13 +459,6 @@ protected:
   bool initializeCallback(const UDPServerData& server_data);
 
   /**
-   * \brief Static constant wait time [ms] used when determining if a connection has been established or not.
-   *
-   * I.e. a connection between the interface's UDP server, and a robot controller's EGM client.
-   */
-  static const unsigned int WAIT_TIME_MS = 100;
-
-  /**
    * \brief Container for the inputs, to the interface, from the UDP server.
    */
   InputContainer inputs_;
