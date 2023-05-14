@@ -3,7 +3,7 @@
   <rosparam command="load" file="$(arg yamlFile)"/>
 
   <group ns="setup1">
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find yumi_description)/urdf/single_yumi.urdf.xacro' arms_interface:=PositionJointInterface grippers_interface:=EffortJointInterface yumi_setup:=default" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find robots_description)/xacro/YumiSingleArm/single_yumi.xacro' arms_interface:=PositionJointInterface grippers_interface:=EffortJointInterface yumi_setup:=default" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 

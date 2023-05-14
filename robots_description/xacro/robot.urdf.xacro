@@ -1,32 +1,54 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
 
-    <xacro:arg name="robot"   default="gofa"/>
 
-    <xacro:property name="robot" value="$(arg robot)"/>
+    <!-- Parameters -->
+    <arg name="name"                    default="gofa" />
+    <xacro:arg name="robot"              default="$(arg name)" />
+    <xacro:arg name="hardware_interface" default="PositionJointInterface" />
+    <xacro:arg name="gripper_interface"  default="EffortJointInterface" />
+    <xacro:arg name="yumi_setup"         default="default" />
 
-    <!-- Robot -->
-    <xacro:if value="${robot == 'gofa'}">
-        <xacro:include filename="$(find robots_description)/xacro/gofa.urdf.xacro" />
-        <xacro:gofa parent="world" child="flange">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:gofa>
-    </xacro:if>
+    <xacro:property name="robot"              value="$(arg robot)" />
+    <xacro:property name="hardware_interface" value="$(arg hardware_interface)" />
+    <xacro:property name="gripper_interface"  value="$(arg gripper_interface)" />
 
-    <!--xacro:if value="${robot == 'yumi'}">
-        <xacro:include filename="$(find robots_description)/xacro/yumi.urdf.xacro" />
-    </xacro:if-->
-
-    <!-- Grippers 
-    <xacro:if value="${gr == 'robotiq_2f'}">
-        <xacro:include filename="$(find dsr_description)/xacro/robotiq_2f.urdf.xacro" />
-    </xacro:if>
-    <xacro:if value="${gr == 'GripperCamozzi'}">
-        <xacro:include filename="$(find dsr_description)/xacro/GripperCamozzi/GripperCamozzi.urdf.xacro" />
-    </xacro:if> -->
-
-    <!-- World fixed joint-->
+    <!-- World fixed joint -->
     <link name="world" />
 
-</robot>
+    <!-- Robot -->
 
+    <!-- Gofa -->
+    <xacro:if value="${robot == 'gofa'}">
+        <xacro:include filename="$(find robots_description)/xacro/Gofa/gofa.urdf.xacro" />
+        <xacro:gofa parent="world" child="flange">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:gofa>
+
+        <!-- Gripper -->
+    </xacro:if>
+
+    <!-- Single Yumi -->
+    <xacro:if value="${robot == 'yumi_single_arm'}">
+        <!-- Import Rviz colors -->
+        <xacro:include filename="$(find robots_description)/Util/materials.xacro" />
+        <!-- Import utilities -->
+        <xacro:include filename="$(find robots_description)/Util/utilities.xacro" />
+        <!--Import
+        the single yumi macro -->
+        <xacro:include filename="$(find robots_description)/xacro/YumiSingleArm/single_yumi.xacro" />
+        <!--Import
+        the yumi servo gripper macro -->
+        <xacro:include filename="$(find robots_description)/Grippers/YumiServoGripper/yumi_servo_gripper.xacro" />
+
+        <xacro:single_yumi parent="world" hardware_interface="${hardware_interface}">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:single_yumi>
+
+        <!-- Gripper -->
+        <xacro:yumi_servo_gripper name="gripper" parent="link_7" hardware_interface="${gripper_interface}">
+            <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+        </xacro:yumi_servo_gripper>
+    </xacro:if>
+
+</robot>

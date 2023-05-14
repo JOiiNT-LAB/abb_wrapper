@@ -3,7 +3,7 @@
   <rosparam command="load" file="$(arg yamlFile)"/>
 
   <group ns="Gofa">
-    <param name="robot_description" textfile="$(find gofa_description)/urdf/gofa.urdf" />
+    <param name="robot_description" textfile="$(find robot_description)/xacro/Gofa/gofa.urdf" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
