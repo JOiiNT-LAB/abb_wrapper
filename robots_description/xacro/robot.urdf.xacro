@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot" >
+
+    <xacro:arg name="robot"   default="gofa"/>
+
+    <xacro:property name="robot" value="$(arg robot)"/>
+
+    <!-- Robot -->
+    <xacro:if value="${robot == 'gofa'}">
+        <xacro:include filename="$(find robots_description)/xacro/gofa.urdf.xacro" />
+        <xacro:gofa/>
+    </xacro:if>
+
+    <!--xacro:if value="${robot == 'yumi'}">
+        <xacro:include filename="$(find robots_description)/xacro/yumi.urdf.xacro" />
+    </xacro:if-->
+
+    <!-- Grippers 
+    <xacro:if value="${gr == 'robotiq_2f'}">
+        <xacro:include filename="$(find dsr_description)/xacro/robotiq_2f.urdf.xacro" />
+    </xacro:if>
+    <xacro:if value="${gr == 'GripperCamozzi'}">
+        <xacro:include filename="$(find dsr_description)/xacro/GripperCamozzi/GripperCamozzi.urdf.xacro" />
+    </xacro:if> -->
+
+    <!-- World fixed joint-->
+    <link name="world" />
+        <joint name="world_fixed" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="world"/>
+        <child link="base"/>
+    </joint>
+
+</robot>
+
