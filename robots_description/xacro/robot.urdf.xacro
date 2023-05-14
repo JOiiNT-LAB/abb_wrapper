@@ -8,7 +8,9 @@
     <!-- Robot -->
     <xacro:if value="${robot == 'gofa'}">
         <xacro:include filename="$(find robots_description)/xacro/gofa.urdf.xacro" />
-        <xacro:gofa/>
+        <xacro:gofa parent="world" child="flange">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:gofa>
     </xacro:if>
 
     <!--xacro:if value="${robot == 'yumi'}">
@@ -25,11 +27,6 @@
 
     <!-- World fixed joint-->
     <link name="world" />
-        <joint name="world_fixed" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <parent link="world"/>
-        <child link="base"/>
-    </joint>
 
 </robot>
 
