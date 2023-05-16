@@ -9,8 +9,7 @@
       <arg name="robot" value="gofa" />
     </include>
 
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
+   
     <node pkg="abb_driver" name="abb_interface" type="abb_interface_node" output="screen" />
     <node pkg="abb_driver" name="controller_bridge" type="controller_bridge_node" output="screen" />
     <node pkg="abb_controllers" name="OneTaskInvKin" type="OneTaskInvKin_node" output="screen" />
