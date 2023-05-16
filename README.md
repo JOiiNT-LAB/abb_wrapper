@@ -225,6 +225,9 @@ Any other user can be used by passing the name and the password to **rws_interfa
 Navigate to abb_driver/config/gofa_cfg.yaml
 Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.)
 Finally 
+Set robot in Automatic and Motors ON
+Connect to WAN port
+set PC IP address to 192.168.131.5 (see "Setup the UDP device" above)
 ```bash
 $ roslaunch abb_driver interface_gofa.launch
 ```

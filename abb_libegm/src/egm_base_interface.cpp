@@ -47,6 +47,7 @@
 
 #include <cmath>
 #include <sstream>
+#include <iostream>
 
 #include "abb_libegm/egm_base_interface.h"
 #include "abb_libegm/egm_common_auxiliary.h"

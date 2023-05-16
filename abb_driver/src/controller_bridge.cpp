@@ -265,6 +265,13 @@ void controller_bridge::run()
 
 		pub_curr_pose_.publish(curr_pose);
 		pub_joint_.publish(joint_curr_);
+		ROS_INFO("[%lf, %lf, %lf, %lf, %lf, %lf]", joint_curr_.position[0], 
+												   joint_curr_.position[1], 
+												   joint_curr_.position[2], 
+												   joint_curr_.position[3], 
+												   joint_curr_.position[4], 
+												   joint_curr_.position[5]);
+		
 	}
 	else
 	{

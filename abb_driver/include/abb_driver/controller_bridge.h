@@ -106,6 +106,8 @@ class controller_bridge
 			{
 				std::cout<< "wait_: "<< wait_ << std::endl;
 				// wait_ = false;
+				ROS_INFO("EGM is CONNECTED ?  %s", egm_interface_.isConnected() ? "true" : "false");
+
 				if(egm_interface_.isConnected())
 				{
 				  if(egm_interface_.getStatus().rapid_execution_state() == abb::egm::wrapper::Status_RAPIDExecutionState_RAPID_UNDEFINED)
@@ -115,6 +117,7 @@ class controller_bridge
 				  else
 				  {
 				    wait_ = egm_interface_.getStatus().rapid_execution_state() != abb::egm::wrapper::Status_RAPIDExecutionState_RAPID_RUNNING;
+					ROS_INFO("egm %d", egm_interface_.getStatus().rapid_execution_state());
 				  }
 				}
 

@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/andrea/ros_ws/devel/include/**",
+        "/home/andrea/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/andrea/ros_ws/src/abb_wrapper/abb_controllers/include/**",
+        "/home/andrea/ros_ws/src/abb_wrapper/abb_driver/include/**",
+        "/home/andrea/catkin_ws/src/abb_robot_driver/abb_egm_hardware_interface/include/**",
+        "/home/andrea/catkin_ws/src/abb_egm_rws_managers/include/**",
+        "/home/andrea/catkin_ws/src/abb_robot_driver/abb_egm_state_controller/include/**",
+        "/home/andrea/ros_ws/src/abb_wrapper/abb_libegm/include/**",
+        "/home/andrea/ros_ws/src/abb_wrapper/abb_librws/include/**",
+        "/home/andrea/catkin_ws/src/abb_robot_driver/abb_robot_cpp_utilities/include/**",
+        "/home/andrea/catkin_ws/src/abb_robot_driver/abb_rws_service_provider/include/**",
+        "/home/andrea/catkin_ws/src/abb_robot_driver/abb_rws_state_publisher/include/**",
+        "/home/andrea/catkin_ws/src/netft_utils/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_bullet/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_eigen/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_geometry_msgs/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_kdl/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_msgs/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_ros/include/**",
+        "/home/andrea/catkin_ws/src/geometry2/tf2_sensor_msgs/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
