@@ -149,7 +149,7 @@
 		<link name="${child}">
 		</link>
 		<joint name="$(arg 6th_link_name)_to_${child}" type="fixed">
-			<origin xyz="0.033599981 0 0" rpy="0 0 0"/>
+			<origin xyz="0.033599981 0 0" rpy="0 ${radians(90)} 0"/>
 			<parent link="$(arg 6th_link_name)"/>
 			<child link="${child}"/>
 		</joint>
