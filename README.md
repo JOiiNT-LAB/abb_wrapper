@@ -55,7 +55,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install build-essential gdb cmake git
 sudo apt-get install openssl libssl-dev
-sudo apt-get install libiodbc2 libiodbc2-dev
+# sudo apt-get install libiodbc2 libiodbc2-dev <- This uninstall stuffs from Moveit!
 sudo apt-get install libmysqlclient-dev
 ```
 
@@ -105,7 +105,7 @@ sudo apt-get install libboost-all-dev
 Copy **abb_wrapper** folder to **src** folder on catkin workspace (`~/catkin_ws/src`).
 ```bash
 cd catkin_ws/src
-git clone https://github.com/JOiiNT-LAB/abb_wrapper
+git clone https://github.com/MerlinLaboratory/abb_wrapper.git
 ```
 
 Move back to the workspace folder (catkin_ws/)
