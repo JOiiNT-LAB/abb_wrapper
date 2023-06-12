@@ -234,7 +234,7 @@ Any other user can be used by passing the name and the password to **rws_interfa
  
 ### Set up Config File and launch your abb robot (e.g. Gofa) 
 Navigate to abb_driver/config/gofa_cfg.yaml
-Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.)
+Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.). Note that the IP robot in the yaml has to be the same of the WAN port (**POLIMI Setup = 192.168.131.200**)
 
 Finally 
 
