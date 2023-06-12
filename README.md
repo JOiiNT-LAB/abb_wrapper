@@ -160,6 +160,9 @@ With this configuration, we will set up the IP address of the WAN port where the
 
   <img src="images/robotstudio5.png" alt="RobotStudio">
 
+*POLIMI SETUP: 
+set WAN IP = 192.168.131.200*
+
 **This step is optional, also the MGMT port can be used.**
 
 The MGMT port have a fixed IP address (*192.168.125.1* ) and a DHCP server.
@@ -180,6 +183,12 @@ On the Controller tab, in the Configuration group, click Configuration and then 
 Double click on the `UDP Unicast Device` item.
 
   <img src="images/robotstudio9.png" alt="RobotStudio">
+
+*POLIMI SETUP: 
+set ROB 1 IP = 192.168.131.5
+set UCDEVICE IP = 192.168.131.5*
+
+
 
 
 ### Setup the Controller Firewall
@@ -225,9 +234,10 @@ Any other user can be used by passing the name and the password to **rws_interfa
 Navigate to abb_driver/config/gofa_cfg.yaml
 Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.)
 Finally 
+*Load in robotstudio in rapid codes from the controller folder "EGM"
 Set robot in Automatic and Motors ON
 Connect to WAN port
 set PC IP address to 192.168.131.5 (see "Setup the UDP device" above)
 ```bash
 $ roslaunch abb_driver interface_gofa.launch
-```
+```*
