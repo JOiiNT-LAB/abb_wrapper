@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   visualization_msgs
   interactive_markers
+  tf
 )
 
 ## System dependencies are found with CMake's conventions

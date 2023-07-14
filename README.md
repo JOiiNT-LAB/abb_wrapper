@@ -55,7 +55,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install build-essential gdb cmake git
 sudo apt-get install openssl libssl-dev
-sudo apt-get install libiodbc2 libiodbc2-dev
+# sudo apt-get install libiodbc2 libiodbc2-dev <- This uninstall stuffs from Moveit!
 sudo apt-get install libmysqlclient-dev
 ```
 
@@ -105,7 +105,7 @@ sudo apt-get install libboost-all-dev
 Copy **abb_wrapper** folder to **src** folder on catkin workspace (`~/catkin_ws/src`).
 ```bash
 cd catkin_ws/src
-git clone https://github.com/JOiiNT-LAB/abb_wrapper
+git clone https://github.com/MerlinLaboratory/abb_wrapper.git
 ```
 
 Move back to the workspace folder (catkin_ws/)
@@ -160,6 +160,9 @@ With this configuration, we will set up the IP address of the WAN port where the
 
   <img src="images/robotstudio5.png" alt="RobotStudio">
 
+**POLIMI SETUP: 
+set WAN IP = 192.168.131.200**
+
 **This step is optional, also the MGMT port can be used.**
 
 The MGMT port have a fixed IP address (*192.168.125.1* ) and a DHCP server.
@@ -180,6 +183,14 @@ On the Controller tab, in the Configuration group, click Configuration and then 
 Double click on the `UDP Unicast Device` item.
 
   <img src="images/robotstudio9.png" alt="RobotStudio">
+
+**POLIMI SETUP:**
+
+**set ROB 1 IP = 192.168.131.5**
+
+**set UCDEVICE IP = 192.168.131.5**
+
+
 
 
 ### Setup the Controller Firewall
@@ -223,8 +234,15 @@ Any other user can be used by passing the name and the password to **rws_interfa
  
 ### Set up Config File and launch your abb robot (e.g. Gofa) 
 Navigate to abb_driver/config/gofa_cfg.yaml
-Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.)
+Modify the parameters based on your robot configuration (e.g. ip_robot, name_robot,task_robot, etc.). Note that the IP robot in the yaml has to be the same of the WAN port (**POLIMI Setup = 192.168.131.200**)
+
 Finally 
-```bash
-$ roslaunch abb_driver interface_gofa.launch
+
+**Load in robotstudio in rapid codes from the controller folder "EGM"** 
+**Set robot in Automatic and Motors ON**
+**Connect to WAN port**
+**set PC IP address to 192.168.131.5 (see "Setup the UDP device" above)**
 ```
+  source of setup.bash
+$ roslaunch abb_driver interface_gofa.launch
+``` 

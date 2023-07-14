@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+
+    <!-- Parameters -->
+    <arg name="name"                    default="gofa" />
+    <xacro:arg name="robot"              default="$(arg name)" />
+    <xacro:arg name="hardware_interface" default="PositionJointInterface" />
+    <xacro:arg name="gripper_interface"  default="EffortJointInterface" />
+    <xacro:arg name="yumi_setup"         default="default" />
+
+    <xacro:property name="robot"              value="$(arg robot)" />
+    <xacro:property name="hardware_interface" value="$(arg hardware_interface)" />
+    <xacro:property name="gripper_interface"  value="$(arg gripper_interface)" />
+
+    <!-- World fixed joint -->
+    <link name="world" />
+
+    <!-- Robot -->
+
+    <!-- Gofa -->
+    <xacro:if value="${robot == 'gofa'}">
+        <xacro:include filename="$(find robots_description)/xacro/Gofa/gofa.urdf.xacro" />
+        <xacro:gofa parent="world" child="flange">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:gofa>
+
+        <!-- Gripper -->
+    </xacro:if>
+
+    <!-- Single Yumi -->
+    <xacro:if value="${robot == 'yumi_single_arm'}">
+        <!-- Import Rviz colors -->
+        <xacro:include filename="$(find robots_description)/Util/materials.xacro" />
+        <!-- Import utilities -->
+        <xacro:include filename="$(find robots_description)/Util/utilities.xacro" />
+        <!--Import
+        the single yumi macro -->
+        <xacro:include filename="$(find robots_description)/xacro/YumiSingleArm/single_yumi.xacro" />
+        <!--Import
+        the yumi servo gripper macro -->
+        <xacro:include filename="$(find robots_description)/Grippers/YumiServoGripper/yumi_servo_gripper.xacro" />
+
+        <xacro:single_yumi parent="world" hardware_interface="${hardware_interface}">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:single_yumi>
+
+        <!-- Gripper -->
+        <xacro:yumi_servo_gripper name="gripper" parent="link_7" hardware_interface="${gripper_interface}">
+            <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
+        </xacro:yumi_servo_gripper>
+    </xacro:if>
+
+</robot>

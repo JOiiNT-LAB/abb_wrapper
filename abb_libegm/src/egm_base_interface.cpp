@@ -47,6 +47,7 @@
 
 #include <cmath>
 #include <sstream>
+#include <iostream>
 
 #include "abb_libegm/egm_base_interface.h"
 #include "abb_libegm/egm_common_auxiliary.h"
@@ -55,6 +56,13 @@ namespace abb
 {
 namespace egm
 {
+/**
+* \brief Static constant wait time [ms] used when determining if a connection has been established or not.
+*
+* I.e. a connection between the interface's UDP server, and a robot controller's EGM client.
+*/
+static const unsigned int WAIT_TIME_MS = 100;
+
 /***********************************************************************************************************************
  * Class definitions: EGMBaseInterface::InputContainer
  */
