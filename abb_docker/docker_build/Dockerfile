@@ -4,6 +4,8 @@ FROM osrf/ros:noetic-desktop-focal
 
 ENV TZ=Europe/Rome
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 ARG HOME
 ARG ROS_WS
 ENV ROS_WS $ROS_WS
@@ -51,13 +53,9 @@ RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 RUN echo "source ${ROS_WS}/devel/setup.bash" >> ~/.bashrc
 RUN echo "source ~/.bashrc" 
 
-RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && cd ${ROS_WS} && catkin_make"
-
-RUN echo "source ~/.bashrc" 
-
 WORKDIR $ROS_WS
 
-RUN catkin_make
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make && source ~/.bashrc"
 
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=all
