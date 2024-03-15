@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  ros:
+    build:
+      context: ./docker_build
+      dockerfile: Dockerfile
+      args:
+        HOME: /home/ros_user
+        ROS_WS: /home/ros_user/catkin_ws
+    image: ros
+    container_name: ros2
+    privileged: true
+    network_mode: "host"
+    environment:
+      - DISPLAY=$DISPLAY                                                # DO NOT TOUCH IT
+    volumes:
+      - "$HOME/.Xauthority:/root/.Xauthority:rw"                        # DO NOT TOUCH IT
+      - "/tmp/.X11-unix:/tmp/.X11-unix"                                 # DO NOT TOUCH IT 
+      - "$HOME/dev:/home/ros_user"    # DO NOT TOUCH IT 
+      - "../../abb_wrapper:/home/ros_user/catkin_ws/src/abb_wrapper"    # DO NOT TOUCH IT 
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
