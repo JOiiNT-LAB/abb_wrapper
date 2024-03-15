@@ -49,13 +49,15 @@ RUN mkdir -p $ROS_WS/src && mv /root/.bashrc /home/ros_user
 
 ENV HOME $HOME
 
+ADD . /home/ros_user/catkin_ws/src
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 RUN echo "source ${ROS_WS}/devel/setup.bash" >> ~/.bashrc
 RUN echo "source ~/.bashrc" 
 
 WORKDIR $ROS_WS
 
-RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make && source ~/.bashrc"
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd ~/catkin_ws/; catkin_make'
 
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=all

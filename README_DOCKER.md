@@ -1,3 +1,8 @@
+
+
+
+
+
 MEMO
 1) prime-select nvidia, perchè su pc i9 non ci sono driver per la gpu intel integrata, quindi bisogna usare per forza nvidia per tutto
 2) xhost + sull pc host

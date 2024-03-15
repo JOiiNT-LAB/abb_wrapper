@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  ros:
+  ros_noetic_abb:
     build:
-      context: ./docker_build
+      context: .
       dockerfile: Dockerfile
       args:
         HOME: /home/ros_user
         ROS_WS: /home/ros_user/catkin_ws
-    image: ros
-    container_name: ros2
+    image: ros_noetic_abb
+    container_name: abb
     privileged: true
     network_mode: "host"
     environment:
