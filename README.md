@@ -2,7 +2,7 @@
 These packages are intended to ease the interaction between ABB OmniCore controllers and ROS-based systems, by providing ready-to-run ROS nodes.
 
 ## Important Notes
-Tested on Ubuntu 18.04 with ROS Melodic.
+Tested on Ubuntu 20.04 with ROS Noetic.
 
 ## Overview
 
@@ -24,16 +24,16 @@ Please see each package for more details (*e.g. additional requirements, limitat
 
 ## Build Instructions
 
-It is assumed that [ROS Melodic has been installed](http://wiki.ros.org/melodic/Installation/Ubuntu) on the system in question.
+It is assumed that [ROS Noetic has been installed](http://wiki.ros.org/noetic/Installation/Ubuntu) on the system in question.
 
 ### Set up ROS
 
 The following instructions assume that a [Catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) has been created at `$HOME/catkin_ws` and that the *source space* is at `$HOME/catkin_ws/src`. Update paths appropriately if they are different on the build machine.
 
-The following instructions should build the main branches of all required repositories on a ROS Melodic system:
+The following instructions should build the main branches of all required repositories on a ROS Noetic system:
 
 ```bash
-echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
