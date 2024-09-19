@@ -105,7 +105,7 @@ sudo apt-get install libboost-all-dev
 Copy **abb_wrapper** folder to **src** folder on catkin workspace (`~/catkin_ws/src`).
 ```bash
 cd catkin_ws/src
-git clone https://github.com/MerlinLaboratory/abb_wrapper.git
+git clone https://github.com/JOiiNT-LAB/abb_wrapper.git
 ```
 
 Move back to the workspace folder (catkin_ws/)
